@@ -1,0 +1,35 @@
+<ng-container>
+    <div class="page-container">
+        <button mat-raised-button (click)="addDummyData()">Refresh</button>
+        <form action="" [formGroup]="postForm">
+            <mat-form-field appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title">
+                <!-- <mat-error *ngIf="submitted && postForm.get('title').hasError('required')">
+                    Title is <strong>required</strong>
+                </mat-error> -->
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                    <mat-option value="{{item}}" *ngFor="let item of status">{{item}}</mat-option>
+                </mat-select>
+                <!-- <mat-error *ngIf="submitted && postForm.get('status').hasError('required')">
+                    Status is <strong>required</strong>
+                </mat-error> -->
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+        <!-- {{postForm.value | json}} -->
+    </div>
+</ng-container>
